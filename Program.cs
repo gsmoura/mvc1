@@ -14,7 +14,7 @@ var password = builder.Configuration["DBPASSWORD"] ?? "gsmoura";
 
 string mySqlConnection = $"server={host}; userid=root; pwd={password} port={port}; database=produtosdb";
 
-builder.Services.AddDbContext<>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
 
 var app = builder.Build();
 
