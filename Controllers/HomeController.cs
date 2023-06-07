@@ -17,9 +17,7 @@ namespace mvc1.Controllers
         public HomeController(IRepository repo, IConfiguration config, IHttpContextAccessor httpContextAccessor)
         {
             repository = repo;
-            _httpContextAccessor = httpContextAccessor;
-            var hostname = _httpContextAccessor.HttpContext.Request.Host.Value;
-            message = $"Docker - ({hostname})";
+            message = $"Docker - ({config["HOSTNAME"]})";
         }
         public IActionResult Index()
         {
